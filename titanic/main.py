@@ -2,10 +2,10 @@ import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 
-train_data = pd.read_csv("train.csv")
+train_data = pd.read_csv("training_data/train.csv")
 print(train_data.head())
 
-test_data = pd.read_csv("test.csv")
+test_data = pd.read_csv("training_data/test.csv")
 print(test_data.head())
 
 y = train_data["Survived"]
@@ -21,5 +21,5 @@ model.fit(X, y)
 predictions = model.predict(X_test)
 
 output = pd.DataFrame({"PassengerId": test_data["PassengerId"], "Survived": predictions})
-output.to_csv("submission.csv", index=False)
+output.to_csv("predicted_data/submission.csv", index=False)
 print(output)
